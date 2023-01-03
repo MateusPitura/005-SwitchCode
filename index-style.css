@@ -1,10 +1,10 @@
-.corpo{
-    background: #241E31;
-    color: white;
-    font-family: monospace;
-    font-size: 14px;
-    text-align: justify;
-    margin-bottom: 10%;
+.corpo-texto{
+    background: #fafbfd; /*Cor de fundo branco (mas nem tao branco */
+    color: #181224; /*Cor do texto roxo-escuro*/
+    font-family: Helvetica; /*Fonte padrao*/
+    font-size: 18px; /*Tamanho da fonte*/
+    margin-bottom: 10%; /*Margem no final para evitar do texto ficar colado ao rodape, 10% da largura horizontal*/
+    line-height: 2; /*Tamanho da linha: tamanho da fonte + 2...4. Nesse caso 18+2=20*/
 }
 
 .cabecalho{
@@ -24,7 +24,7 @@
 .lista-linguagens{
     margin-left: 300px;
     margin-right: 300px;
-    text-align: justify;
+    text-align: justify; 
     vertical-align: middle;
     font-size: 20px;
 }
@@ -90,7 +90,8 @@
 
 .artigo{
     margin-left: 30%;
-    margin-right: 30%;
+    margin-right: 30%; 
+    line-height: 2;
 }
 
 .titulo-h1{

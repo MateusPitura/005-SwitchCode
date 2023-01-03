@@ -1,30 +1,36 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!--Diz para o navegador qual versao estamos usando, html indica que e a mais atual-->
 
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>SwitchCode</title>
-        <link rel="stylesheet" href="011-reset.css">
-        <link rel="stylesheet" href="011-style.css">
+<html lang="pt-BR"> <!--Diz para o navegador qual linguagem estamos usando-->
+    <head> <!--Onde passamos informacoes para o navegador-->
+        <meta charset="UTF-8"> <!--Diz para o navegador qual conjunto de caracters estamos usando, UTF-8 inclui todos que precisamos na maioria dos casos-->
+        <title>SwitchCode</title> <!--Título da aba-->
+        <link rel="stylesheet" href="reset.css"> <!--Importa o css-->
+        <link rel="stylesheet" href="index-style.css">
     </head>
-    <body class="corpo">
-        <header class="cabecalho">
-            <ul class="lista-linguagens">
-                <li class="item underline-color-c">C</li>
-                <li class="item underline-color-cpp">C++</li>
-                <li class="item underline-color-csharp">C#</li>
-                <li class="item underline-color-python">Python</li>
-                <li class="item underline-color-javascript">JavaScript</li>
-                <li class="item underline-color-java">Java</li>
-                <li class="item underline-color-php">PHP</li>
-                <li class="item underline-color-swift">Swift</li>
-                <li class="item underline-color-go">Go</li>
-                <li class="item underline-color-sql">Sql</li>
-                <li class="item underline-color-ruby">Ruby</li>
-                <li class="item underline-color-typescript">TypeScript</li>
-            </ul>
+    <body class="corpo-texto"> <!--Onde escrevemos o conteudo-->
+        <header class="cabecalho"> <!--Cabecalho-->
+            <div> <!--Divisao estrutural, reservada para a primeira parte do cabecalho-->
+            </div>
+            <div> <!--Reserva para a segunda parte do cabecalho (menu de navegacao)-->
+                <nav> <!--Tag semantica que indica o itens de nevegacao entre paginas-->
+                    <ul class="lista-linguagens"> <!--Lista nao ordenada-->
+                        <li class="item underline-color-c">C</li> <!--Item de cada lista-->
+                        <li class="item underline-color-cpp">C++</li>
+                        <li class="item underline-color-csharp">C#</li>
+                        <li class="item underline-color-python">Python</li>
+                        <li class="item underline-color-javascript">JavaScript</li>
+                        <li class="item underline-color-java">Java</li>
+                        <li class="item underline-color-php">PHP</li>
+                        <li class="item underline-color-swift">Swift</li>
+                        <li class="item underline-color-go">Go</li>
+                        <li class="item underline-color-sql">Sql</li>
+                        <li class="item underline-color-ruby">Ruby</li>
+                        <li class="item underline-color-typescript">TypeScript</li>
+                    </ul>
+                </nav>
+            </div>
         </header>
-        <div class="artigo">
+        <main class="artigo">
             <h1 class="titulo-h1">Números aleatórios em C</h1>            
             <hr class="linha-horizontal">
             <h2 class="titulo-h2">Funções e bibliotecas</h2>
@@ -620,6 +626,8 @@ Valores decimais aleatorios:
             <p>Lembrando que há muita discusão na internet sobre valores pseudoaleatórios, além de que o 
             que mostrei nesse artigo é para uso casual pois não asseguro a qualidade desses números 
             randômicos.</p>
-        </div>
+        </main>
+        <footer>
+        </footer>
     </body>
 </html>
