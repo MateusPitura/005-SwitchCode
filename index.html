@@ -7,29 +7,28 @@
         <link rel="stylesheet" href="reset.css"> <!--Importa o css-->
         <link rel="stylesheet" href="index-style.css">
     </head>
-    <body class="corpo-texto"> <!--Onde escrevemos o conteudo-->
-        <header class="cabecalho"> <!--Cabecalho-->
+    <body class="corpo-pagina-geral"> <!--Onde escrevemos o conteudo-->
+        <header class="cabecalho-pagina-geral"> <!--Cabecalho-->
             <div> <!--Divisao estrutural, reservada para a primeira parte do cabecalho-->
             </div>
-            <div> <!--Reserva para a segunda parte do cabecalho (menu de navegacao)-->
-                <nav> <!--Tag semantica que indica o itens de nevegacao entre paginas-->
-                    <ul class="lista-linguagens"> <!--Lista nao ordenada-->
-                        <li class="item underline-color-c">C</li> <!--Item de cada lista-->
-                        <li class="item underline-color-cpp">C++</li>
-                        <li class="item underline-color-csharp">C#</li>
-                        <li class="item underline-color-python">Python</li>
-                        <li class="item underline-color-javascript">JavaScript</li>
-                        <li class="item underline-color-java">Java</li>
-                        <li class="item underline-color-php">PHP</li>
-                        <li class="item underline-color-swift">Swift</li>
-                        <li class="item underline-color-go">Go</li>
-                        <li class="item underline-color-sql">Sql</li>
-                        <li class="item underline-color-ruby">Ruby</li>
-                        <li class="item underline-color-typescript">TypeScript</li>
-                    </ul>
-                </nav>
-            </div>
+            <nav class="cabecalho-menu-nevagacao"> <!--Tag semantica que indica o itens de nevegacao entre paginas-->
+                <ul class="lista-linguagens-navegacao"> <!--Lista nao ordenada-->
+                    <div class="espacamento-itens-navagacao"><li><a href="">C</a></li></div> <!--Item de cada lista-->
+                    <div class="espacamento-itens-navagacao"><li><a href="">C++</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">C#</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Python</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">JavaScript</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Java</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">PHP</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Swift</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Go</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Sql</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">Ruby</a></li></div>
+                    <div class="espacamento-itens-navagacao"><li><a href="">TypeScript</a></li></div>
+                </ul>
+            </nav>
         </header>
+        <div class="fundo">
         <main class="artigo">
             <h1 class="titulo-h1">Números aleatórios em C</h1>            
             <hr class="linha-horizontal">
@@ -327,15 +326,15 @@ int sorteia(int limiteMinimo, int limiteMaximo){
             <p>O programa exibiu:</p>
             <pre><br><code><p class="codigo-output">
 -2
- 0
- 3
- 1
+0
+3
+1
 -1
 -2
- 4
- 1
- 4
- 3  
+4
+1
+4
+3  
             </p></code><br></pre>
             <h2 class="titulo-h2">Valores aleatórios decimais</h2>
             <p>Até agora apenas geramos valores aleatórios inteiros. Vamos ver agora como gerar valores
@@ -597,27 +596,27 @@ float sorteia(float limiteMinimo, float limiteMaximo){
             <pre><br><code><p class="codigo-input">
 Valores inteiros aleatorios:
 -1
- 2
- 4
- 3
- 2
- 2
- 3
- 4
- 1
- 1
+2
+4
+3
+2
+2
+3
+4
+1
+1
 
 Valores decimais aleatorios:
 -1.743644
- 3.920103
- 2.346507
- 0.719932
+3.920103
+2.346507
+0.719932
 -0.573595
- 2.968596
- 4.428754
- 4.077975
- 1.678701
- 3.819056 
+2.968596
+4.428754
+4.077975
+1.678701
+3.819056 
             </p></code><br></pre>
             <p>Porém cuidado ao usar essa função para inteiros, pois a probabilidade de sorteia retornar, 
             nesse exemplo, 5 e bem menor do que retornar 4 ou outro valor, pois apenas 5.000000 será 5, 
@@ -626,7 +625,8 @@ Valores decimais aleatorios:
             <p>Lembrando que há muita discusão na internet sobre valores pseudoaleatórios, além de que o 
             que mostrei nesse artigo é para uso casual pois não asseguro a qualidade desses números 
             randômicos.</p>
-        </main>
+        </main>            
+        </div>
         <footer>
         </footer>
     </body>
