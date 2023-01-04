@@ -28,21 +28,17 @@
                 </ul>
             </nav>
         </header>
-        <div class="fundo">
-        <main class="artigo">
-            <h1 class="titulo-h1">Números aleatórios em C</h1>            
-            <hr class="linha-horizontal">
-            <h2 class="titulo-h2">Funções e bibliotecas</h2>
-            <p>Para gerar valores aleatórios/randômicos em C será necessário usar a seguinte função:</p>
-            <br>
-            <p class="codigo-input">rand();</p>
-            <br>
-            <p>Que necessita da biblioca:</p>
-            <br>
-            <p class="codigo-input">&ltstdio.h&gt</p>
-            <br>
-            <p><strong>Retorno:</strong> valores inteiros entre e incluindo 0 e 32767.</p>
-            <p><strong>Pâmetros:</strong> nenhum.</p>
+        <div class="fundo-conteudo-artigo">
+        <main class="artigo-conteudo-pagina">
+            <h1 class="titulo-grande-conteudo">Números aleatórios em C</h1>            
+            <hr class="linha-horizontal-conteudo">
+            <h2 class="titulo-medio-conteudo">Funções e bibliotecas</h2>
+            <p>Para gerar valores aleatórios em C use a função 
+            <span class="codigo-single-line">rand()</span>
+            com a biblioteca
+            <span class="codigo-single-line">&ltstdio.h&gt</span>
+            <b>Retorno:</b> valores inteiros entre e incluindo 0 e 32767.</p>
+            <b>Pâmetros:</b> nenhum.
             <br>
             </p>Segue um exemplo:</p>
             <pre><br><code><p class="codigo-input">
@@ -169,11 +165,11 @@ int main(){
             <br>
             <p class="codigo-input">srand(time(NULL));</p>
             <br>
-            <h2 class="titulo-h2">Limitando a faixa de valores aleatórios</h2>
+            <h2 class="titulo-medio-conteudo">Limitando a faixa de valores aleatórios</h2>
             <p>Na maioria das vezes queremos gerar valores aleatórios dentro de uma faixa de específica, 
             por exemplo podemos querer que o menor seja 10 ou o maior seja 100 ou ainda que sejam de 10 
             a 100. Vamos ver como fazer isso.</p>
-            <h3 class="titulo-h2">Limitando o maior valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o maior valor</h3>
             <p>Primeiro vamos relembrar o operador que retorna o resto da divisão.</p>
             <br>
             <p class="codigo-input">29 % 10</p>
@@ -231,7 +227,7 @@ int main(){
 3
 2                
             </p></code><br></pre>
-            <h3 class="titulo-h2">Limitando o menor valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o menor valor</h3>
             <p>Esse é mais simples, basta somar o menor valor desejado, por exemplo 20:</p>
             <br>
             <p class="codigo-input">numeroAleatorio=rand()+20; //numeros aleatorios de 20 a 32787</p>
@@ -259,7 +255,7 @@ int main(){
     return 0;
 }        
             </p></code><br></pre>
-            <h3 class="titulo-h2">Limitando o maior e o menor valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o maior e o menor valor</h3>
             <p>Unindo tudo chegamos ao seguinte:</p>
             <br>
             <p class="codigo-input">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1));</p>
@@ -336,7 +332,7 @@ int sorteia(int limiteMinimo, int limiteMaximo){
 4
 3  
             </p></code><br></pre>
-            <h2 class="titulo-h2">Valores aleatórios decimais</h2>
+            <h2 class="titulo-medio-conteudo">Valores aleatórios decimais</h2>
             <p>Até agora apenas geramos valores aleatórios inteiros. Vamos ver agora como gerar valores
             decimais. Analise o seguinte código:</p>
             <pre><br><code><p class="codigo-input">
@@ -430,7 +426,7 @@ int main(){
             que a declação de uma constante hexadecimal.</p>
             <br>
             <p class="codigo-input">#define RAND_MAX 0x7FFF</p>
-            <h3 class="titulo-h2">Limitando o maior valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o maior valor</h3>
             <p>Nosso programa está gerando valores entre e incluindo 0 e 1, para limitar o maior valor 
             basta multiplicar pelo pelo limiteMaximo, assim a faixa de valores ficará entre e 
             incluindo 0 e o limiteMaximo, nesse caso entre 0 e 4:</p>
@@ -463,7 +459,7 @@ int main(){
 2.860439
 3.004364
             </p></code><br></pre>
-            <h3 class="titulo-h2">Limitando o menor valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o menor valor</h3>
             <p>Basta somar o menor valor desejado. Assim também conseguimos obter números negativos. 
             Porém aqui o programa gera valores entre e incluindo 0 e 1, a faixa de valores será entre 
             e incluindo o limiteMinimo e o limiteMinimo + 1, nesse caso entre -4 e -3.</p>
@@ -496,7 +492,7 @@ int main(){
 -3.912015
 -3.496109
             </p></code><br></pre>
-            <h3 class="titulo-h2">Limitando o maior e o menor valor</h3>
+            <h3 class="titulo-medio-conteudo">Limitando o maior e o menor valor</h3>
             <p>Unindo os dois coneceitos temos:</p>
             <br>
             <p class="codigo-input">numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*limiteMaximo;</p>
@@ -560,7 +556,7 @@ float sorteiaDecimais(float limiteMinimo, float limiteMaximo){
 }
             </p></code><br></pre>
             <p>Observe que tanto o limiteMinimo quanto o limiteMaximo podem ser valores decimais.</p>
-            <h2 class="titulo-h2">Unindo tudo</h2>
+            <h2 class="titulo-medio-conteudo">Unindo tudo</h2>
             <p>Agora temos duas funções, uma que gera valores inteiros aleatórios e outra que gera 
             valores decimais aleatórios. Porém podemos ter apenas uma, basta atribuir a função 
             sorteia a um inteiro, assim a parte decimal será descartada:</p>
