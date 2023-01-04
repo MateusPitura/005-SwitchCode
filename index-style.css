@@ -1,97 +1,53 @@
-.corpo-texto{
-    background: #fafbfd; /*Cor de fundo branco (mas nem tao branco */
-    color: #181224; /*Cor do texto roxo-escuro*/
-    font-family: Helvetica; /*Fonte padrao*/
-    font-size: 18px; /*Tamanho da fonte*/
-    margin-bottom: 10%; /*Margem no final para evitar do texto ficar colado ao rodape, 10% da largura horizontal*/
-    line-height: 2; /*Tamanho da linha: tamanho da fonte + 2...4. Nesse caso 18+2=20*/
+.corpo-pagina-geral{
+    font-family: Helvetica; /*Fonte generica padrao*/
 }
 
-.cabecalho{
+.cabecalho-pagina-geral{
+    width: 100%; /*Largura, 100% porque quero que ocupe toda a tela*/
+}
+
+.cabecalho-menu-nevagacao{
     background: #181224;
-    color: #F7F7F7;
-    font-weight: 900;
-    width: 100%;
+    font-weight: 900; /*Define o peso da fonte, 0-900, sendo o 900 um bold forte*/
 }
 
-.lista-linguagens:before{
-    content: '';
-    display: inline-block;
-    width: 100%;
-    vertical-align: middle;
-} 
-
-.lista-linguagens{
-    margin-left: 300px;
-    margin-right: 300px;
-    text-align: justify; 
-    vertical-align: middle;
-    font-size: 20px;
+.lista-linguagens-navegacao{
+    text-align: center; /*Centraliza os itens da lista*/
+    font-size: 18px;
+    margin: 0 10%; 
+    padding: 1.5% 0;
 }
 
-.lista-linguagens:after{
-    content: '';
-    display: inline-block;
-    width: 100%;
-    height: 0;
+.espacamento-itens-navagacao{ /*Necessario para que o scale(1.1) nao fosse aplicado no padding do li*/
+    display: inline-block; /*Coloca os itens um ao lado do outro*/
+    padding: 0 1.5%;
 }
 
-.item{
-    display: inline-block;
+.cabecalho-menu-nevagacao a{ /*Apenas com a classe do nav deu certo*/
+    color: #F7F7F7; 
+    text-decoration: none;
 }
 
-.underline-color-c{
-    text-decoration: underline #E16667 3px;
+.lista-linguagens-navegacao a:hover{ /*Quando passar o mouse por cima...*/
+    color: #F1EA82;
+    text-decoration: underline #F1EA82 3px; /*...insere um underline sobre o item*/
 }
 
-.underline-color-cpp{
-    text-decoration: underline #46c8f0 3px;
+.lista-linguagens-navegacao li:hover{
+    transform: scale(1.1); /*Aumenta a fonte sem interferir no padding/margin, se colocar no ...a:hover nao funciona*/
 }
 
-.underline-color-csharp{
-    text-decoration: underline #5a34e2 3px;
-}
-
-.underline-color-python{
-    text-decoration: underline #43ff53 3px;
-}
-
-.underline-color-javascript{
-    text-decoration: underline #f3ff46 3px;
-}
-
-.underline-color-java{
-    text-decoration: underline #ffa034 3px;
-}
-
-.underline-color-php{
-    text-decoration: underline #3cfff5 3px;
-}
-
-.underline-color-swift{
-    text-decoration: underline #ff50d3 3px;
-}
-
-.underline-color-go{
-    text-decoration: underline #1ed0e7 3px;
-}
-
-.underline-color-sql{
-    text-decoration: underline #7759ff 3px;
-}
-
-.underline-color-ruby{
-    text-decoration: underline #f74848 3px;
-}
-
-.underline-color-typescript{
-    text-decoration: underline #59deff 3px;
+.fundo{
+    background: #F7F7F7; /*Cor de fundo branco (mas nem tao branco */
 }
 
 .artigo{
     margin-left: 30%;
     margin-right: 30%; 
-    line-height: 2;
+    color: #181224; /*Cor do texto roxo-escuro*/
+    font-size: 18px; /*Tamanho da fonte*/
+    margin-bottom: 10%; /*Margem no final para evitar do texto ficar colado ao rodape, 10% da largura horizontal*/
+    line-height: 2; /*Tamanho da linha: tamanho da fonte + 2...4. Nesse caso 18+2=20*/
 }
 
 .titulo-h1{
