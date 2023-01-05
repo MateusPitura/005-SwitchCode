@@ -94,7 +94,7 @@
 }
 
 .code-input-view{
-    padding: 1% 1% 1% 2%;
+    padding: 1% 1% 1% 4%;
     border: 1px #28282B solid;
     border-radius: 5px;
     background-color: rgba(211, 211, 211, 0.250);
@@ -103,16 +103,13 @@
     width: 100%;
     margin: 2% 0;
     line-height: 1.5;
+    counter-reset: linhas; /*Reseta o contador linhas com 1*/
 }
 
-.code-input-view td:first-child{ /*Contagem de linhas*/
-    width: 1%;
-    white-space: nowrap;
-    text-align: end;
-}
-
-.code-input-view td:after{
-    width: 50px;
+.code-input-view pre:before{ /*Insere um numero corresponde a linha antes do elemento pre*/
+    counter-increment: linhas; /*Incrementa o contador linhas em 1 unidade*/
+    content: counter(linhas); /*Coloca o conteudo de conter(linhas), no caso e o valor de linhas*/
+    padding-right: 5%;
 }
 
 .codigo-output{
