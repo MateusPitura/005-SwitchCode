@@ -51,35 +51,68 @@
 }
 
 .titulo-grande-conteudo{
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding: 5% 0;
 }
 
 .titulo-medio-conteudo{
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 3% 0;
 }
 
 .linha-horizontal-conteudo{
     height: 2px;
-    background-color: gray;
+    background-color: #181224;
 }
 
 .codigo-single-line{
-    padding: 4px 4px;
-    border: 1px black solid;
-    background-color: #FDFBF9;
+    padding: 2px 4px;
+    border: 1px #F7F7F7 solid;
+    border-radius: 5px; /*Deixa a borda da margem curva*/
+    background-color: rgba(211, 211, 211, 0.250); /*Cinza claro com 25% de transparencia*/
     color: #28282B;
     font-family: monospace;
 }
 
-.codigo-input{
-    padding: 5px;
-    padding-left: 25px;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+.function-wiki-view{
+    padding: 1% 1% 1% 4%; /*padding de 4% a esquerda*/
+    border: 1px #28282B solid;
+    border-radius: 5px;
+    background-color: rgba(211, 211, 211, 0.250);
     color: #28282B;
+    font-family: monospace;
+    width: 100%; /*para a tabela ocupar todo o espaco do artigo*/
+    margin: 2% 0;
+    line-height: 1.5;
+}
+
+.function-wiki-view td:first-child{ /*Pega a primeira celula de cada linha*/
+    width: 1%; /*Essa e...*/
+    white-space: nowrap; /*...essa fazem a celula se ajustar ao tamanho do conteudo*/
+}
+
+.function-wiki-view td:nth-child(2){ /*Pega a segundo celula de cada linha*/
+    width: 2%;
+}
+
+.code-input-view{
+    padding: 1% 1% 1% 2%;
+    border: 1px #28282B solid;
+    border-radius: 5px;
+    background-color: rgba(211, 211, 211, 0.250);
+    color: #28282B;
+    font-family: monospace;
+    width: 100%;
+    margin: 2% 0;
+    line-height: 1.5;
+}
+
+.code-input-view td:first-child{ /*Contagem de linhas*/
+    width: 1%;
+    white-space: nowrap;
+    text-align: end;
+}
+
+.code-input-view td:after{
+    width: 50px;
 }
 
 .codigo-output{
