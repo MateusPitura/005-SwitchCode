@@ -33,26 +33,82 @@
             <h1 class="titulo-grande-conteudo">Números aleatórios em C</h1>            
             <hr class="linha-horizontal-conteudo">
             <h2 class="titulo-medio-conteudo">Funções e bibliotecas</h2>
-            <p>Para gerar valores aleatórios em C use a função 
-            <span class="codigo-single-line">rand()</span>
-            com a biblioteca
-            <span class="codigo-single-line">&ltstdio.h&gt</span>
-            <b>Retorno:</b> valores inteiros entre e incluindo 0 e 32767.</p>
-            <b>Pâmetros:</b> nenhum.
-            <br>
-            </p>Segue um exemplo:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-
-int main(){
-    int numeroAleatorio;
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand();
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}
-            </p></code><br></pre>
+            <p>Para gerar valores aleatórios em C use a seguinte função:</p>
+            <table class="function-wiki-view">
+                <tr>
+                    <td><b>Função</b></td>
+                    <td></td>
+                    <td>rand()</td>
+                </tr>
+                <tr>
+                    <td><b>Biblioteca</b></td>
+                    <td></td>
+                    <td>&ltstdio.h&gt</td>
+                </tr>
+                <tr>
+                    <td><b>Retorno</b></td>
+                    <td></td>
+                    <td>inteiros entre 0 e 32767</td>
+                </tr>
+                <tr>
+                    <td><b>Parâmetro</b></td>
+                    <td></td>
+                    <td>nenhum</td>
+                </tr>
+            </table>
+            </p>Exemplo:</p>
+            <table class="code-input-view">
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td><pre>#include &ltstdio.h&gt</pre></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                    <td><pre></pre></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                    <td><pre>int main(){</pre></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                    <td><pre>   int numeroAleatorio;</pre></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                    <td><pre>   for(int i=0; i<10; i++){</pre></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td></td>
+                    <td><pre>       numeroAleatorio=rand();</pre></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td></td>
+                    <td><pre>       printf("%d\n", numeroAleatorio);</pre></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td></td>
+                    <td><pre>   }</pre></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td></td>
+                    <td><pre>   return 0;</pre></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td></td>
+                    <td><pre>}</pre></td>
+                </tr>
+            </table>
             <p>O programa exibirá:</p>
             <pre><br><code><p class="codigo-output">    
 41
