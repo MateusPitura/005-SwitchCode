@@ -254,99 +254,103 @@
             Mas fique atento, pois fazendo isso também estamos limitando o maior valor, que nesse caso 
             será 32767 + 20. Usando isso também podemos gerar valores aleatórios negativos, basta 
             subtrair o menor valor desejado. Veja como está o código:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    int numeroAleatorio, limiteMinimo;
-    limiteMinimo=-10;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand()+limiteMinimo;
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}        
-            </p></code><br></pre>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio, limiteMinimo;</pre>
+                    <pre>   limiteMinimo=-10;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand()+limiteMinimo;</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div> 
             <h3 class="titulo-medio-conteudo">Limitando o maior e o menor valor</h3>
-            <p>Unindo tudo chegamos ao seguinte:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1));</p>
-            <br>
-            <p>Veja como está o código completo</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    int numeroAleatorio, limiteMinimo, limiteMaximo;
-    limiteMinimo=2;
-    limiteMaximo=6;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1));
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}                
-            </p></code><br></pre>
-            <p>Que exibiu:</p>
-            <pre><br><code><p class="codigo-output">
-6
-3
-8
-2
-3
-3
-7
-6
-4
-4                
-            </p></code><br></pre>
+            <p>Unindo tudo chegamos a 
+            <span class="codigo-single-line">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1))</span>, o
+            código completo fica assim:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio, limiteMinimo, limiteMaximo;</pre>
+                    <pre>   limiteMinimo=2;</pre>
+                    <pre>   limiteMaximo=6;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1));</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>  
+            <div class="code-output-view">
+                <code>
+                    <pre>6</pre>
+                    <pre>3</pre>
+                    <pre>8</pre>
+                    <pre>2</pre>
+                    <pre>3</pre>
+                    <pre>3</pre>
+                    <pre>7</pre>
+                    <pre>6</pre>
+                    <pre>4</pre>
+                    <pre>4</pre>
+                </code>           
+            </div>
             <p>Execute esse programa várias vezes e perceba que o programa está gerando valores aleatórios 
-            de 2 a 8. Mas nosso limite maximo não está definindo em 6? Sim, mas como dito anteriormente, 
-            mudando o limite mínimo estamos mudando também o limite máximo. Para resolver isso:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1-limiteMinimo));</p>
-            <br>
-            <p>Para não precisar escrever todo esse código várias vezes podemos criar uma função:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int sorteia(int limiteMinimo, int limiteMaximo);
-
-int main(){
-    int numeroAleatorio;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=sorteia(-2, 4);
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}
-
-int sorteia(int limiteMinimo, int limiteMaximo){
-    return limiteMinimo+(rand()%(limiteMaximo+1-limiteMinimo));
-}b
-            </p></code><br></pre>
-            <p>O programa exibiu:</p>
-            <pre><br><code><p class="codigo-output">
--2
-0
-3
-1
--1
--2
-4
-1
-4
-3  
-            </p></code><br></pre>
+            de 2 a 8. Mas nosso limite maximo não está definindo em 6? Sim, mas como foi explicado, 
+            mudando o limite mínimo estamos mudando também o limite máximo. Resolvemos assim: 
+            <span class="codigo-single-line">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1-limiteMinimo))</span>.
+            Para não precisar escrever todo esse código várias vezes podemos criar uma função:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int sorteia(int limiteMinimo, int limiteMaximo);</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=sorteia(-2, 4);</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                    <pre></pre>
+                    <pre>int sorteia(int limiteMinimo, int limiteMaximo){</pre>
+                    <pre>   return limiteMinimo+(rand()%(limiteMaximo+1-limiteMinimo));</pre>
+                    <pre>}</pre>
+                </code>
+            </div>   
+            <div class="code-output-view">
+                <code>
+                    <pre>-2</pre>
+                    <pre> 0</pre>
+                    <pre> 3</pre>
+                    <pre> 1</pre>
+                    <pre>-1</pre>
+                    <pre>-2</pre>
+                    <pre> 4</pre>
+                    <pre> 1</pre>
+                    <pre> 4</pre>
+                    <pre> 3</pre>
+                </code>
+            </div>  
             <h2 class="titulo-medio-conteudo">Valores aleatórios decimais</h2>
             <p>Até agora apenas geramos valores aleatórios inteiros. Vamos ver agora como gerar valores
             decimais. Analise o seguinte código:</p>
