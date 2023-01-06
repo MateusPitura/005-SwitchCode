@@ -58,6 +58,10 @@
     padding: 3% 0;
 }
 
+.titulo-pequeno-conteudo{
+    padding: 1% 0;
+}
+
 .linha-horizontal-conteudo{
     height: 2px;
     background-color: #181224;

@@ -143,68 +143,60 @@
                     <pre>time()</pre>
                     <pre>&lttime.h&gt</pre>
                     <pre>segundos desde 01/01/1970</pre>
-                    <pre>NULL</pre>
+                    <pre>NULL ou 0</pre>
                 </div>
             </div>
-            <p class="codigo-input">;</p>
-            <br>
-            <p>Que necessita da biblioteca</p>
-            <br>
-            <p class="codigo-input">&lttime.h&gt</p>
-            <br>
-            <p><strong>Retorno:</strong> segundos que se passaram desde 00:00:00 de 1 de Janeiro de 1970.</p>
-            <p><strong>Parâmetros:</strong> para nosso usso passaremos NULL ou 0</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &lttime.h&gt
-
-int main(){
-    int tempo;
-    tempo=time(NULL); //Ou tempo=time(0);
-    printf("%d", tempo);
-    return 0;
-}                
-            </p></code><br></pre>
-            <p>O programa exibiu:</p>
-            <br>
-            <p class="codigo-output">1671364746</p>
-            <br>
-            <p>Usando um convesor de segundos para anos da internet, o resultado foi 52 anos (estou 
-            escrevendo este artigo em 2022). Agora só precisamos juntar tudo:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    int numeroAleatorio, tempo;
-    tempo=time(NULL);
-    srand(tempo); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand();
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}
-            </p></code><br></pre>
-            <p>Ou seja, estamos passando um valor diferente a cada vez que rodarmos o programa como 
-            parâmetro da função srand( ), que por sua vez irá modificar a seed da função rand( ). 
-            Assim a cada vez que rodarmos o programa uma sequência aleatória de valores será gerada. 
-            Por economia de código, é comum escrever:</p>
-            <br>
-            <p class="codigo-input">srand(time(NULL));</p>
-            <br>
+            <p>Exemplo:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int tempo;</pre>
+                    <pre>   tempo=time(NULL); //Ou time(0)</pre>
+                    <pre>   printf("%d", tempo);</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>1671364746</pre>
+                </code>
+            </div>
+            <p>Usando um convesor de segundos para anos o resultado foi 52 anos (estou 
+            escrevendo este artigo em 2022). Agora é só juntar:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio, tempo;</pre>
+                    <pre>   tempo=time(NULL);</pre>
+                    <pre>   srand(tempo); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand();</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <p>Nesse programa passamos um valor diferente, a cada vez que o executamos, para a função 
+            <span class="codigo-single-line">srand()</span>, que por sua vez 
+            modifica a seed da função <span class="codigo-single-line">rand()</span>. Assim a cada vez que o 
+            programa é executado uma sequência aleatória nova de valores é gerada. É comum escrever 
+            <span class="codigo-single-line">srand(time(NULL))</span>.</p>
             <h2 class="titulo-medio-conteudo">Limitando a faixa de valores aleatórios</h2>
             <p>Na maioria das vezes queremos gerar valores aleatórios dentro de uma faixa de específica, 
-            por exemplo podemos querer que o menor seja 10 ou o maior seja 100 ou ainda que sejam de 10 
-            a 100. Vamos ver como fazer isso.</p>
-            <h3 class="titulo-medio-conteudo">Limitando o maior valor</h3>
-            <p>Primeiro vamos relembrar o operador que retorna o resto da divisão.</p>
-            <br>
-            <p class="codigo-input">29 % 10</p>
-            <br>
-            <p>O resultado será 9, pois 29 dividos por 10 é 2 e sobram 9. Analise o seguinte código:</p>
-            <pre><br><code><p class="codigo-input">
+            por exemplo menor que 10 ou maior que 100 ou ainda entre 10 e 100. Vamos ver como fazer isso.</p>
+            <h3 class="titulo-pequeno-conteudo">Limitando o maior valor</h3>
+            <p>Primeiro relembre o operador <span class="codigo-single-line">%</span> que retorna o resto da 
+            divisão. Por exemplo, o resultado de<span class="codigo-single-line">29 % 10</span> será 9, pois
+            29 divididos por 10 é 2 e sobram 9. Analise o seguinte código:</p>
 #include &ltstdio.h&gt
 
 int main(){
