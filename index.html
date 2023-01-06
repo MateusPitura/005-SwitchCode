@@ -354,35 +354,38 @@
             <h2 class="titulo-medio-conteudo">Valores aleatórios decimais</h2>
             <p>Até agora apenas geramos valores aleatórios inteiros. Vamos ver agora como gerar valores
             decimais. Analise o seguinte código:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-
-int main(){
-    float quociente, dividendo, limiteMaximo;
-    dividendo=0;
-    limiteMaximo=10;
-    for(int i=0; i<=limiteMaximo; i++){
-        quociente=dividendo/limiteMaximo;
-        printf("%f\n", quociente);
-        dividendo++;
-    }
-    return 0;
-}                
-            </p></code><br></pre>
-            <p>O programa irá exbir:</p>
-            <pre><br><code><p class="codigo-output">
-0.000000
-0.100000
-0.200000
-0.300000
-0.400000
-0.500000
-0.600000
-0.700000
-0.800000
-0.900000
-1.000000                
-            </p></code><br></pre>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float quociente, dividendo, limiteMaximo;</pre>
+                    <pre>   dividendo=0;</pre>
+                    <pre>   limiteMaximo=10;</pre>
+                    <pre>   for(int i=0; i<=limiteMaximo; i++){</pre>
+                    <pre>       quociente=dividendo/limiteMaximo;</pre>
+                    <pre>       printf("%f\n", quociente);</pre>
+                    <pre>       dividendo++;</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>  
+            <div class="code-output-view">
+                <code>
+                    <pre>0.000000</pre>
+                    <pre>0.100000</pre>
+                    <pre>0.200000</pre>
+                    <pre>0.300000</pre>
+                    <pre>0.400000</pre>
+                    <pre>0.500000</pre>
+                    <pre>0.600000</pre>
+                    <pre>0.700000</pre>
+                    <pre>0.800000</pre>
+                    <pre>0.900000</pre>
+                    <pre>1.000000</pre>
+                </code>
+            </div>  
             <p>Ou seja, se dividirmos os valores entre 0 e um limiteMaximo, nesse caso 10, pelo próprio 
             limiteMaximo, o que teremos será valores decimais entre e incluindo 0 e 1. Como aplicar 
             isso ao nosso programa? Lembra da faixa de valores da função rand( )? De 0 a 32767. 
