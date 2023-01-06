@@ -310,8 +310,8 @@
                 </code>           
             </div>
             <p>Execute esse programa várias vezes e perceba que o programa está gerando valores aleatórios 
-            de 2 a 8. Mas nosso limite maximo não está definindo em 6? Sim, mas como foi explicado, 
-            mudando o limite mínimo estamos mudando também o limite máximo. Resolvemos assim: 
+            de 2 a 8. Mas nosso <span class="codigo-single-line">limiteMaximo</span> não está definido em 
+            6? Sim, mas como foi explicado, mudando o limite mínimo estamos mudando também o limite máximo</span>. Solução: 
             <span class="codigo-single-line">numeroAleatorio=limiteMinimo+(rand()%(limiteMaximo+1-limiteMinimo))</span>.
             Para não precisar escrever todo esse código várias vezes podemos criar uma função:</p>
             <div class="code-input-view">
@@ -386,68 +386,70 @@
                     <pre>1.000000</pre>
                 </code>
             </div>  
-            <p>Ou seja, se dividirmos os valores entre 0 e um limiteMaximo, nesse caso 10, pelo próprio 
-            limiteMaximo, o que teremos será valores decimais entre e incluindo 0 e 1. Como aplicar 
-            isso ao nosso programa? Lembra da faixa de valores da função rand( )? De 0 a 32767. 
-            Portanto, basta dividirmos rand( ) por 32767 para obtermos valores entre 0 e 1.</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    float numeroAleatorio;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand()/32767;
-        printf("%f\n", numeroAleatorio);
-    }
-    return 0;
-}                             
-            </p></code><br></pre>
-            <p>O programa exibirá:</p>
-            <pre><br><code><p class="codigo-output">
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000
-0.000000                           
-            </p></code><br></pre>
-            <p>Não é o que queremos. Por que isso aconteceu? Lembra dos casts? Quando dividimos rand( ) 
-            por 32767, estamos dividindo dois valores inteiros, logo o resultado será um inteiro. 
-            Para resolvermos isso podemos usar um cast do tipo float.</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=(float)rand()/32767;</p>
-            <br>
-            <p>E nosso programa exibiu o que buscamos:</p>
-            <pre><br><code><p class="codigo-output">
-0.276833
-0.499344
-0.317545
-0.985290
-0.376263
-0.237190
-0.403790
-0.602557
-0.570299
-0.496078                          
-            </p></code><br></pre>
-            <p>Em vez de 32767 podemos usar RAND_MAX, que é uma constante definida na biblioteca 
-            stdlib.h que vale 0x7FFF, representação de 32767 em hexadecimal.</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=(float)rand()/RAND_MAX;</p>
+            <p>Ou seja, se dividirmos os valores entre 0 e um <span class="codigo-single-line">limiteMaximo</span>,
+            nesse caso 10, pelo próprio <span class="codigo-single-line">limiteMaximo</span>, o que teremos será valores 
+            decimais entre 0 e 1. Como aplicar isso ao nosso programa? Lembra da faixa de valores 
+            da função <span class="codigo-single-line">rand()</span>? De 0 a 32767. Portanto, basta 
+            dividirmos <span class="codigo-single-line">rand()</span> por 32767 para obtermos valores entre 0 e 1.</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorio;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand()/32767;</pre>
+                    <pre>       printf("%f\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>  
+            <div class="code-output-view">
+                <code>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                    <pre>0.000000</pre>
+                </code>
+            </div>  
+            <p>Não é o que queremos. Por que isso aconteceu? Lembra dos casts? Quando dividimos o retorno de
+            <span class="codigo-single-line">rand()</span> por 32767, estamos dividindo dois inteiros, 
+            logo o resultado será um inteiro. Para isso usamos um cast do tipo float:
+            <span class="codigo-single-line">numeroAleatorio=(float)rand()/32767</span>. E nosso programa 
+            exibiu o que buscamos:</p>
+            <div class="code-output-view">
+                <code>
+                    <pre>0.276833</pre>
+                    <pre>0.499344</pre>
+                    <pre>0.317545</pre>
+                    <pre>0.985290</pre>
+                    <pre>0.376263</pre>
+                    <pre>0.237190</pre>
+                    <pre>0.403790</pre>
+                    <pre>0.602557</pre>
+                    <pre>0.570299</pre>
+                    <pre>0.496078  </pre>
+                </code>
+            </div>  
+            <p>Em vez de 32767 pode-se usar <span class="codigo-single-line">RAND_MAX</span>, uma 
+            constante definida na biblioteca <span class="codigo-single-line">stdlib.h</span> que vale 0x7FFF,
+            representação de 32767 em hexadecimal. O código fica assim: <span class="codigo-single-line">numeroAleatorio=(float)rand()/RAND_MAX</span>.</p>
             <br>
             <p>Por curiosidade, caso esteja usando o Visual Studio Code ou o DevC++, clique sobre 
-            &ltstdlib.h&gt segurando Ctrl, uma nova aba será aberta, agora aperte Ctrl + F para realizar uma 
-            busca e digite no campo RAND_MAX, você encontrá a expressão seguinte, que nada mais é do
-            que a declação de uma constante hexadecimal.</p>
-            <br>
-            <p class="codigo-input">#define RAND_MAX 0x7FFF</p>
+            <span class="codigo-single-line">&ltstdlib.h&gt</span> segurando Ctrl, uma nova aba será aberta, agora 
+            aperte Ctrl + F para realizar uma busca e digite no campo <span class="codigo-single-line">RAND_MAX</span>,
+            você encontrá <span class="codigo-single-line">#define RAND_MAX 0x7FFF</span>, que 
+            nada mais é do que a declação de uma constante hexadecimal.</p>
             <h3 class="titulo-medio-conteudo">Limitando o maior valor</h3>
             <p>Nosso programa está gerando valores entre e incluindo 0 e 1, para limitar o maior valor 
             basta multiplicar pelo pelo limiteMaximo, assim a faixa de valores ficará entre e 
