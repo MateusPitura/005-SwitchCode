@@ -197,69 +197,63 @@
             <p>Primeiro relembre o operador <span class="codigo-single-line">%</span> que retorna o resto da 
             divisão. Por exemplo, o resultado de<span class="codigo-single-line">29 % 10</span> será 9, pois
             29 divididos por 10 é 2 e sobram 9. Analise o seguinte código:</p>
-#include &ltstdio.h&gt
-
-int main(){
-    int qualquerNumero, restoDivisao;
-    scanf("%d", &qualquerNumero);
-    restoDivisao=qualquerNumero%10;
-    printf("%d", restoDivisao);
-}               
-            </p></code><br></pre>
-            <p>Qual será o maior valor possível que o programa exibirá? 9, por exemplo quando 
-            qualquerNumero valer 49. E qual será o menor valor possível? 0, por exemplo quando 
-            qualquerNumero valer 50. Juntado com o que vimos:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=rand()%100;</p>
-            <br>
-            <p>numeroAleatorio ficará limitado a uma faixa de valores de 0 a 99. Caso não queira se 
-            lembrar todo vez que o maior valor será o limiteMaximo, nesse caso 100, menos 1, pode-se 
-            fazer:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=rand()%(limiteMaximo+1);</p>
-            <br>
-            <p>Nosso código ficará assim</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    int numeroAleatorio, limiteMaximo;
-    limiteMaximo=5;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand()%(limiteMaximo+1);
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}                
-            </p></code><br></pre>
-            <p>O programa exibiu:</p>
-            <pre><br><code><p class="codigo-output">
-4
-0
-5
-1
-0
-1
-2
-0
-3
-2                
-            </p></code><br></pre>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int qualquerNumero, restoDivisao;</pre>
+                    <pre>   scanf("%d", &qualquerNumero);</pre>
+                    <pre>   restoDivisao=qualquerNumero%10;</pre>
+                    <pre>   printf("%d", restoDivisao);</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <p>Qual será o maior valor que o programa exibirá? 9, por exemplo quando 
+            <span class="codigo-single-line">qualquerNumero</span> valer 49. E qual será o menor valor? 0, por exemplo quando <span class="codigo-single-line">qualquerNumero</span> valer 50. 
+            Assim <span class="codigo-single-line">numeroAleatorio=rand()%100</span> limitará 
+            <span class="codigo-single-line">numeroAleatorio</span> a uma faixa de valores de 0 a 99. 
+            Caso não queira se lembrar todo vez que o maior valor será o 
+            <span class="codigo-single-line">limiteMaximo</span> menos 1, pode-se fazer 
+            <span class="codigo-single-line">numeroAleatorio=rand()%(limiteMaximo+1)</span>. O código ficará assim:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio, limiteMaximo;</pre>
+                    <pre>   limiteMaximo=5;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand()%(limiteMaximo+1);</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>              
+            <div class="code-output-view">
+                <code>
+                    <pre>4</pre>
+                    <pre>0</pre>
+                    <pre>5</pre>
+                    <pre>1</pre>
+                    <pre>0</pre>
+                    <pre>1</pre>
+                    <pre>2</pre>
+                    <pre>0</pre>
+                    <pre>3</pre>
+                    <pre>2</pre>
+                </code>
+            </div>            
             <h3 class="titulo-medio-conteudo">Limitando o menor valor</h3>
-            <p>Esse é mais simples, basta somar o menor valor desejado, por exemplo 20:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=rand()+20; //numeros aleatorios de 20 a 32787</p>
-            <br>
-            <p>Mas fique atento, pois fazendo isso também estamos limitando o maior valor, que nesse caso 
+            <p>Basta somar o menor valor desejado, por exemplo 
+            <span class="codigo-single-line">numeroAleatorio=rand()+20</span> limita os valores de 20 a 32787.
+            Mas fique atento, pois fazendo isso também estamos limitando o maior valor, que nesse caso 
             será 32767 + 20. Usando isso também podemos gerar valores aleatórios negativos, basta 
-            subtrair o menor valor desejado:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=rand()-20; //numeros aleatorios de -20 a 32747</p>
-            <br>
-            <p>Aqui também estaremos limitando o maior valor, que nesse caso será 32767 - 20. Veja como está o código:</p>
+            subtrair o menor valor desejado. Veja como está o código:</p>
             <pre><br><code><p class="codigo-input">
 #include &ltstdio.h&gt
 #include &ltstdlib.h&gt
