@@ -34,126 +34,119 @@
             <hr class="linha-horizontal-conteudo">
             <h2 class="titulo-medio-conteudo">Funções e bibliotecas</h2>
             <p>Para gerar valores aleatórios em C use a seguinte função:</p>
-            <table class="function-wiki-view">
-                <tr>
-                    <td><b>Função</b></td>
-                    <td></td>
-                    <td>rand()</td>
-                </tr>
-                <tr>
-                    <td><b>Biblioteca</b></td>
-                    <td></td>
-                    <td>&ltstdio.h&gt</td>
-                </tr>
-                <tr>
-                    <td><b>Retorno</b></td>
-                    <td></td>
-                    <td>inteiro entre 0 e 32767</td>
-                </tr>
-                <tr>
-                    <td><b>Parâmetro</b></td>
-                    <td></td>
-                    <td>nenhum</td>
-                </tr>
-            </table>
+            <div class="function-wiki-view">
+                <div class="function-wiki-titulos">
+                    <pre>Função</pre>
+                    <pre>Biblioteca</pre>
+                    <pre>Retorno</pre>
+                    <pre>Parâmetro</pre>
+                </div>
+                <div class="function-wiki-description">
+                    <pre>rand()</pre>
+                    <pre>&ltstdio.h&gt</pre>
+                    <pre>inteiro entre 0 e 32767</pre>
+                    <pre>nenhum</pre>
+                </div>
+            </div>
             </p>Exemplo:</p>
-            <table class="code-input-view">
-                <tr>
-                    <td><pre>#include &ltstdio.h&gt</pre></td>
-                </tr>
-                <tr>
-                    <td><pre></pre></td>
-                </tr>
-                <tr>
-                    <td><pre>int main(){</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>   int numeroAleatorio;</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>   for(int i=0; i<10; i++){</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>       numeroAleatorio=rand();</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>       printf("%d\n", numeroAleatorio);</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>   }</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>   return 0;</pre></td>
-                </tr>
-                <tr>
-                    <td><pre>}</pre></td>
-                </tr>
-            </table>
-            <p>O programa exibirá:</p>
-            <pre><br><code><p class="codigo-output">    
-41
-18467
-6334
-26500
-19169
-15724
-11478
-29358
-26962
-24464
-            </p></code><br></pre>
-            <p>Se executarmos de novo o programa exibirá os mesmos resultados. Ou seja, nas duas vezes que 
-            executamos o retorno da função foi o mesmo. E se executarmos repetidas vezes esse código ele 
-            exibirá os mesmos valores. Mas então essa função não gera valores aleatórios? Por si só não, 
-            para isso precisamos incluir a seguinte função:</p>
-            <br>
-            <p class="codigo-input">srand();</p>
-            <br>
-            <p>Que necessita da biblioteca:</p>
-            <br>
-            <p class="codigo-input">&ltstdlib.h&gt</p>
-            <br>
-            <p><strong>Retorno:</strong> nenhum.</p>
-            <p><strong>Parâmetros:</strong> valores inteiros sem sinal</p>
-            <br>
-            <p>Ela irá modificar a seed da função rand( ), mudando a seed mudamos a sequência de valores 
-            aleatórios. Por isso precisa ser usada apenas uma vez antes de usar a função rand( ), mesmo que 
-            você use várias vezes rand( ). Por padrão a seed é igual a 1. Logo se passarmos como parâmetro 
-            o valor 1, o programa exibirá o mesmo de antes. Porém, se passarmos outro valor o resultado será 
-            diferente.</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-
-int main(){
-    int numeroAleatorio;
-    srand(2); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=rand();
-        printf("%d\n", numeroAleatorio);
-    }
-    return 0;
-}
-            </p></code><br></pre>
-            <p>O programa exibirá:</p>
-            <pre><br><code><p class="codigo-output">
-45
-29216
-24198
-17795
-29484
-19650
-14590
-26431
-10705
-18316
-            </p></code><br></pre>
-            <p>Passando outros valores o resultado irá ser diferente a cada novo valor. Entretando, ainda 
-            se executarmos o mesmo código mais de uma vez o resultado será igual. Como podemos resolver 
-            isso? Isso poderia ser resolvido se a cada vez que executassemos o programa a função srand( ) 
-            recebesse um parâmetro diferente. Para fazer isso iremos usar a função:</p>
-            <br>
-            <p class="codigo-input">time();</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio;</pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand();</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>41</pre>    
+                    <pre>18467</pre>    
+                    <pre>6334</pre>    
+                    <pre>26500</pre>    
+                    <pre>19169</pre>    
+                    <pre>15724</pre>    
+                    <pre>11478</pre>    
+                    <pre>29358</pre>    
+                    <pre>26962</pre>    
+                    <pre>24464</pre>    
+                </code>
+            </div>
+            <p>Se executarmos repetidas vezes esse código veremos que o resultado é sempre o mesmo. Mas então 
+            essa função não gera valores aleatórios? Por si só não, para isso precisamos incluir a seguinte 
+            função:</p>
+            <div class="function-wiki-view">
+                <div class="function-wiki-titulos">
+                    <pre>Função</pre>
+                    <pre>Biblioteca</pre>
+                    <pre>Retorno</pre>
+                    <pre>Parâmetro</pre>
+                </div>
+                <div class="function-wiki-description">
+                    <pre>srand()</pre>
+                    <pre>&ltstdlib.h&gt</pre>
+                    <pre>nenhum</pre>
+                    <pre>inteiro sem sinal</pre>
+                </div>
+            </div>
+            <p>Ela irá modificar a seed da função <span class="codigo-single-line">rand()</span>, mudando a 
+            seed mudamos a sequência de valores aleatórios. Por isso precisa ser usada apenas uma vez antes 
+            de usar a função <span class="codigo-single-line">rand()</span>, mesmo que você use essa função 
+            várias vezes. Por padrão a seed vale 1, logo se passarmos outro valor o resultado mudará.</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   int numeroAleatorio;</pre>
+                    <pre>   srand(2); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=rand();</pre>
+                    <pre>       printf("%d\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>45</pre>    
+                    <pre>29216</pre>    
+                    <pre>24198</pre>    
+                    <pre>17795</pre>    
+                    <pre>29484</pre>    
+                    <pre>19650</pre>    
+                    <pre>14590</pre>    
+                    <pre>26431</pre>    
+                    <pre>10705</pre>    
+                    <pre>18316</pre>    
+                </code>
+            </div>
+            <p>O resultado será diferente a cada novo valor. Entretando, ainda se executarmos o mesmo 
+            código mais de uma vez o resultado será igual. Isso poderia ser resolvido se a cada vez que 
+            executassemos o programa a função <span class="codigo-single-line">srand()</span> recebesse um 
+            parâmetro diferente. Para isso usaremos a seguinte função:</p>
+            <div class="function-wiki-view">
+                <div class="function-wiki-titulos">
+                    <pre>Função</pre>
+                    <pre>Biblioteca</pre>
+                    <pre>Retorno</pre>
+                    <pre>Parâmetro</pre>
+                </div>
+                <div class="function-wiki-description">
+                    <pre>time()</pre>
+                    <pre>&lttime.h&gt</pre>
+                    <pre>segundos desde 01/01/1970</pre>
+                    <pre>NULL</pre>
+                </div>
+            </div>
+            <p class="codigo-input">;</p>
             <br>
             <p>Que necessita da biblioteca</p>
             <br>
