@@ -58,6 +58,10 @@
     padding: 3% 0;
 }
 
+.titulo-pequeno-conteudo{
+    padding: 1% 0;
+}
+
 .linha-horizontal-conteudo{
     height: 2px;
     background-color: #181224;
@@ -72,55 +76,70 @@
     font-family: monospace;
 }
 
+.function-wiki-view:before{
+    width: 100%; /*para o bloco ocupar todo o espaco do artigo*/
+}
+
 .function-wiki-view{
-    padding: 1% 1% 1% 4%; /*padding de 4% a esquerda*/
-    border: 1px #28282B solid;
-    border-radius: 5px;
+    padding: 1% 1% 1% 2%; /*padding de 2% a esquerda*/
     background-color: rgba(211, 211, 211, 0.250);
     color: #28282B;
-    font-family: monospace;
-    width: 100%; /*para a tabela ocupar todo o espaco do artigo*/
+    font-family: monospace; 
     margin: 2% 0;
     line-height: 1.5;
+    overflow-x: auto;
+    white-space: nowrap; /*Evita que quando o bloco fique muito pequeno a div description fique embaixo de titulos*/
 }
 
-.function-wiki-view td:first-child{ /*Pega a primeira celula de cada linha*/
-    width: 1%; /*Essa e...*/
-    white-space: nowrap; /*...essa fazem a celula se ajustar ao tamanho do conteudo*/
+.function-wiki-titulos{
+    display: inline-block; /*Para que fique ao lado da seguinda div*/
+    font-weight: bold;
 }
 
-.function-wiki-view td:nth-child(2){ /*Pega a segundo celula de cada linha*/
-    width: 2%;
+.function-wiki-description{
+    display: inline-block;
+    padding-left: 2%;
+}
+
+.code-input-view:before{ /*Sem isso o padding da classe extrapolaria a largura do artigo*/
+    width: 100%;
 }
 
 .code-input-view{
     padding: 1% 1% 1% 2%;
     border: 1px #28282B solid;
-    border-radius: 5px;
     background-color: rgba(211, 211, 211, 0.250);
     color: #28282B;
     font-family: monospace;
-    width: 100%;
     margin: 2% 0;
     line-height: 1.5;
+    counter-reset: linhas; /*Reseta o contador linhas com 1*/
+    overflow-x: auto; /*Quando o texto fica pequeno */
 }
 
-.code-input-view td:first-child{ /*Contagem de linhas*/
-    width: 1%;
-    white-space: nowrap;
-    text-align: end;
+.code-input-view code:before{ /*Titulo do bloco de codigo*/
+    content: "Input";
+    font-weight: bold;
 }
 
-.code-input-view td:after{
-    width: 50px;
+.code-input-view pre:before{ /*Insere um numero corresponde a linha antes do elemento pre*/
+    counter-increment: linhas; /*Incrementa o contador linhas em 1 unidade*/
+    content: counter(linhas, decimal-leading-zero); /*Coloca o conteudo de conter(linhas), no caso e o valor de linhas, dec... faz os numeros serem 01, 02, 03... ao inves de 1, 2, 3...*/
+    padding-right: 4%;
 }
 
-.codigo-output{
-    padding: 5px;
-    padding-left: 25px;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
+.code-output-view{
+    padding: 1% 1% 1% 4%;
+    border: 1px #28282B solid;
     background-color: #28282B;
-    color: #FDFBF9;
+    color: #F7F7F7;
+    font-family: monospace;
+    margin: 2% 0;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+.code-output-view code:before{
+    content: "Output";
+    font-weight: bold;
 }
