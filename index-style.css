@@ -4,11 +4,27 @@
 
 .cabecalho-pagina-geral{
     width: 100%; /*Largura, 100% porque quero que ocupe toda a tela*/
+    display: unset /*apenas com isso o position: sticky do cabecalho das linguagens funcionou*/
+}
+
+.cabecalho-logo-menus:before{
+    background: #F7F7F7;
+}
+
+.cabecalho-logo-menus{
+    margin: 0 20%;
+}
+
+.cabecalho-logo-menus svg{
+    width: 150px;
+    height: auto;
 }
 
 .cabecalho-menu-nevagacao{
     background: #181224;
     font-weight: 900; /*Define o peso da fonte, 0-900, sendo o 900 um bold forte*/
+    position: sticky;
+    top: 0;
 }
 
 .lista-linguagens-navegacao{
@@ -42,8 +58,7 @@
 }
 
 .artigo-conteudo-pagina{
-    margin-left: 30%;
-    margin-right: 30%; 
+    margin: 0 30%;
     color: #181224; /*Cor do texto roxo-escuro*/
     font-size: 18px; /*Tamanho da fonte*/
     margin-bottom: 10%; /*Margem no final para evitar do texto ficar colado ao rodape, 10% da largura horizontal*/
