@@ -488,196 +488,205 @@
             você encontrá <span class="codigo-single-line">#define RAND_MAX 0x7FFF</span>, que 
             nada mais é do que a declação de uma constante hexadecimal.</p>
             <h3 class="titulo-medio-conteudo">Limitando o maior valor</h3>
-            <p>Nosso programa está gerando valores entre e incluindo 0 e 1, para limitar o maior valor 
-            basta multiplicar pelo pelo limiteMaximo, assim a faixa de valores ficará entre e 
-            incluindo 0 e o limiteMaximo, nesse caso entre 0 e 4:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    float numeroAleatorio, limiteMaximo;
-    limiteMaximo=4;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=((float)rand()/RAND_MAX)*limiteMaximo;
-        printf("%f\n", numeroAleatorio); 
-    }
-    return 0;
-}
-            </p></code><br></pre>
-            <p>O programa exibiu:</p>
-            <pre><br><code><p class="codigo-output">
-2.094790
-3.973388
-2.826991
-3.921140
-0.303964
-0.266854
-2.721274
-1.295450
-2.860439
-3.004364
-            </p></code><br></pre>
+            <p>Nosso programa está gerando valores entre 0 e 1, para limitar o maior valor 
+            basta multiplicar pelo <span class="codigo-single-line">limiteMaximo</span>, assim a faixa de valores ficará 
+            0 e o <span class="codigo-single-line">limiteMaximo</span>, como no próximo exemplo entre 0 e 4:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorio, limiteMaximo;</pre>
+                    <pre>   limiteMaximo=4;</pre>
+                    <pre>   srand(time(NULL));</pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=((float)rand()/RAND_MAX)*limiteMaximo;</pre>
+                    <pre>       printf("%f\n", numeroAleatorio); </pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>2.094790</pre>
+                    <pre>2.826991</pre>
+                    <pre>3.921140</pre>
+                    <pre>0.303964</pre>
+                    <pre>0.266854</pre>
+                    <pre>2.721274</pre>
+                    <pre>1.295450</pre>
+                    <pre>2.860439</pre>
+                    <pre>3.004364</pre>
+                </code>
+            </div>
             <h3 class="titulo-medio-conteudo">Limitando o menor valor</h3>
             <p>Basta somar o menor valor desejado. Assim também conseguimos obter números negativos. 
-            Porém aqui o programa gera valores entre e incluindo 0 e 1, a faixa de valores será entre 
-            e incluindo o limiteMinimo e o limiteMinimo + 1, nesse caso entre -4 e -3.</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    float numeroAleatorio, limiteMinimo;
-    limiteMinimo=-4;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX);
-        printf("%f\n", numeroAleatorio);
-    }
-    return 0;
-}
-            </p></code><br></pre>
-            <p>O programa exibiu:</p>
-            <pre><br><code><p class="codigo-output">
--3.428388
--3.231300
--3.065889
--3.795434
--3.516831
--3.292978
--3.632160
--3.645467
--3.912015
--3.496109
-            </p></code><br></pre>
+            Porém aqui o programa gera valores entre 0 e 1, portanto a faixa de valores será entre 
+            o <span class="codigo-single-line">limiteMinimo</span> e o <span class="codigo-single-line">limiteMinimo</span> + 1, 
+            como no próximo exemplo entre -4 e -3.</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorio, limiteMinimo;</pre>
+                    <pre>   limiteMinimo=-4;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX);</pre>
+                    <pre>       printf("%f\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>-3.428388</pre>
+                    <pre>-3.231300</pre>
+                    <pre>-3.065889</pre>
+                    <pre>-3.795434</pre>
+                    <pre>-3.516831</pre>
+                    <pre>-3.292978</pre>
+                    <pre>-3.632160</pre>
+                    <pre>-3.645467</pre>
+                    <pre>-3.912015</pre>
+                    <pre>-3.496109</pre>
+                </code>
+            </div>
             <h3 class="titulo-medio-conteudo">Limitando o maior e o menor valor</h3>
-            <p>Unindo os dois coneceitos temos:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*limiteMaximo;</p>
-            <br>
-            <p>O programa fica assim:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-int main(){
-    float numeroAleatorio, limiteMinimo, limiteMaximo;
-    limiteMinimo=2;
-    limiteMaximo=5;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*limiteMaximo;
-        printf("%f\n", numeroAleatorio);
-    }
-    return 0;
-}
-            </p></code><br></pre>
-            <p>O programa exibe</p>
-            <pre><br><code><p class="codigo-output">
-5.066957
-3.035493
-3.804254
-6.494766
-3.871243
-6.588000
-2.831629
-6.619434
-3.097293
-6.446852
-            </p></code><br></pre>
-            <p>O programa gerou valores maiores que 5, como acontecia para valores aleatórios inteiros, 
-            aqui também precisamos subtrair do limiteMaximo o limiteMinimo:</p>
-            <br>
-            <p class="codigo-input">numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*(limiteMaximo-limiteMinimo);</p>
-            <br>
-            <p>Para não precisarmos digitar o código várias vezes, podemos criar uma função.</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-float sorteiaDecimais(float limiteMinimo, float limiteMaximo);
-
-int main(){
-    float numeroAleatorio;
-    srand(time(NULL)); 
-    for(int i=0; i<10; i++){
-        numeroAleatorio=sorteiaDecimais(-2, 5.5);
-        printf("%f\n", numeroAleatorio);      
-    }
-    return 0;
-}
-
-float sorteiaDecimais(float limiteMinimo, float limiteMaximo){
-    return limiteMinimo+((float)rand()/RAND_MAX)*(limiteMaximo-limiteMinimo);
-}
-            </p></code><br></pre>
-            <p>Observe que tanto o limiteMinimo quanto o limiteMaximo podem ser valores decimais.</p>
+            <p>Temos <span class="codigo-single-line">numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*limiteMaximo</span>,
+            o programa ficará assim:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorio, limiteMinimo, limiteMaximo;</pre>
+                    <pre>   limiteMinimo=2;</pre>
+                    <pre>   limiteMaximo=5;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=limiteMinimo+((float)rand()/RAND_MAX)*limiteMaximo;</pre>
+                    <pre>       printf("%f\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>5.066957</pre>
+                    <pre>3.035493</pre>
+                    <pre>3.804254</pre>
+                    <pre>6.494766</pre>
+                    <pre>3.871243</pre>
+                    <pre>6.588000</pre>
+                    <pre>2.831629</pre>
+                    <pre>6.619434</pre>
+                    <pre>3.097293</pre>
+                    <pre>6.446852</pre>
+                </code>
+            </div>
+            <p>O programa gerou valores maiores que 5, como acontecia para valores inteiros, 
+            aqui também precisamos subtrair do <span class="codigo-single-line">limiteMaximo</span> 
+            o <span class="codigo-single-line">limiteMinimo</span>. Para não precisarmos digitar o código várias vezes, 
+            podemos criar uma função:</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>float sorteiaDecimais(float limiteMinimo, float limiteMaximo);</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorio;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorio=sorteiaDecimais(-2, 5.5);</pre>
+                    <pre>       printf("%f\n", numeroAleatorio);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                    <pre></pre>
+                    <pre>float sorteiaDecimais(float limiteMinimo, float limiteMaximo){</pre>
+                    <pre>   return limiteMinimo+((float)rand()/RAND_MAX)*(limiteMaximo-limiteMinimo);</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <p>Observe que os parâmetros podem ser valores decimais.</p>
             <h2 class="titulo-medio-conteudo">Unindo tudo</h2>
             <p>Agora temos duas funções, uma que gera valores inteiros aleatórios e outra que gera 
             valores decimais aleatórios. Porém podemos ter apenas uma, basta atribuir a função 
             sorteia a um inteiro, assim a parte decimal será descartada:</p>
-            <pre><br><code><p class="codigo-input">
-#include &ltstdio.h&gt
-#include &ltstdlib.h&gt
-#include &lttime.h&gt
-
-float sorteia(float limiteMinimo, float limiteMaximo);
-
-int main(){
-    float numeroAleatorioDecimal;
-    int numeroAleatorioInteiro;
-    srand(time(NULL)); 
-    printf("\nValores inteiros aleatorios:\n");
-    for(int i=0; i<10; i++){
-        numeroAleatorioInteiro=sorteia(-2, 5);
-        printf("%d\n", numeroAleatorioInteiro);      
-    }
-    printf("\nValores decimais aleatorios:\n");
-    for(int i=0; i<10; i++){
-        numeroAleatorioDecimal=sorteia(-2, 5);
-        printf("%f\n", numeroAleatorioDecimal);  
-    }
-    return 0;
-}
-
-float sorteia(float limiteMinimo, float limiteMaximo){
-    return limiteMinimo+((float)rand()/(RAND_MAX))*(limiteMaximo-limiteMinimo);
-}
-            </p></code><br></pre>
-            <p>O programa exibirá</p>
-            <pre><br><code><p class="codigo-input">
-Valores inteiros aleatorios:
--1
-2
-4
-3
-2
-2
-3
-4
-1
-1
-
-Valores decimais aleatorios:
--1.743644
-3.920103
-2.346507
-0.719932
--0.573595
-2.968596
-4.428754
-4.077975
-1.678701
-3.819056 
-            </p></code><br></pre>
-            <p>Porém cuidado ao usar essa função para inteiros, pois a probabilidade de sorteia retornar, 
-            nesse exemplo, 5 e bem menor do que retornar 4 ou outro valor, pois apenas 5.000000 será 5, 
-            já 4.991475, 4.187415, 4.099874 etc. será 4.</p>
+            <div class="code-input-view">
+                <code>
+                    <pre>#include &ltstdio.h&gt</pre>
+                    <pre>#include &ltstdlib.h&gt</pre>
+                    <pre>#include &lttime.h&gt</pre>
+                    <pre></pre>
+                    <pre>float sorteia(float limiteMinimo, float limiteMaximo);</pre>
+                    <pre></pre>
+                    <pre>int main(){</pre>
+                    <pre>   float numeroAleatorioDecimal;</pre>
+                    <pre>   int numeroAleatorioInteiro;</pre>
+                    <pre>   srand(time(NULL)); </pre>
+                    <pre>   printf("\nValores inteiros aleatorios:\n");</pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorioInteiro=sorteia(-2, 5);</pre>
+                    <pre>       printf("%d\n", numeroAleatorioInteiro);</pre>
+                    <pre>   }</pre>
+                    <pre>   printf("\nValores decimais aleatorios:\n");</pre>
+                    <pre>   for(int i=0; i<10; i++){</pre>
+                    <pre>       numeroAleatorioDecimal=sorteia(-2, 5);</pre>
+                    <pre>       printf("%f\n", numeroAleatorioDecimal);</pre>
+                    <pre>   }</pre>
+                    <pre>   return 0;</pre>
+                    <pre>}</pre>
+                    <pre></pre>
+                    <pre>float sorteia(float limiteMinimo, float limiteMaximo){</pre>
+                    <pre>   return limiteMinimo+((float)rand()/(RAND_MAX))*(limiteMaximo-limiteMinimo);</pre>
+                    <pre>}</pre>
+                </code>
+            </div>
+            <div class="code-output-view">
+                <code>
+                    <pre>Valores inteiros aleatorios:</pre>
+                    <pre>-1</pre>
+                    <pre> 2</pre>
+                    <pre> 4</pre>
+                    <pre> 3</pre>
+                    <pre> 2</pre>
+                    <pre> 2</pre>
+                    <pre> 3</pre>
+                    <pre> 4</pre>
+                    <pre> 1</pre>
+                    <pre> 1</pre>
+                    <pre></pre>
+                    <pre>Valores decimais aleatorios:</pre>
+                    <pre>-1.743644</pre>
+                    <pre> 3.920103</pre>
+                    <pre> 2.346507</pre>
+                    <pre> 0.719932</pre>
+                    <pre>-0.573595</pre>
+                    <pre> 2.968596</pre>
+                    <pre> 4.428754</pre>
+                    <pre> 4.077975</pre>
+                    <pre> 1.678701</pre>
+                    <pre> 3.819056</pre>
+                </code>
+            </div>
+            <p>Porém cuidado ao usar essa função para inteiros, pois a probabilidade de <span class="codigo-single-line">sorteia()</span> retornar, 
+            nesse exemplo, 5 é bem menor do que retornar 4 ou outro valor, pois apenas 5.000000 será 5, 
+            já 4.991475, 4.187415, 4.099874 será 4.</p>
             <br>
             <p>Lembrando que há muita discusão na internet sobre valores pseudoaleatórios, além de que o 
             que mostrei nesse artigo é para uso casual pois não asseguro a qualidade desses números 
